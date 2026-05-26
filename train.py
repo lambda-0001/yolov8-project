@@ -1,18 +1,15 @@
-import albumentations as A
 from ultralytics import YOLO
 
-
 # Load a model
-model = YOLO("./weights/yolov8n.pt")  
+model = YOLO("./weights/yolov8n.pt")
 
-if __name__ == '__main__':
-    
+if __name__ == "__main__":
     train_results = model.train(
         data="./ultralytics/cfg/datasets/train2025.yaml",
         batch=1,
         imgsz=120,
-        device='cpu',
-        optimizer='SGD',
+        device="cpu",
+        optimizer="SGD",
         epochs=100,
         hsv_h=0.3,
         hsv_s=0.7,
@@ -24,7 +21,3 @@ if __name__ == '__main__':
         erasing=0.5,
         auto_augment=None,
     )
-
-
-
-
